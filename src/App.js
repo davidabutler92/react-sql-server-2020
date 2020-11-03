@@ -23,9 +23,9 @@ export default class App extends Component {
           
           this.state.snowboards.map((data, i) => 
             <div>
-                <div>{data.snowboard_name}</div>
-                <div>{data.flex}</div>
-                <div>{data.brand}</div>
+                <div>Snowboard: {data.snowboard_name}</div>
+                <div>Flexability 1-10: {data.flex}</div>
+                <div>Brand: {data.brand}</div>
                 <div>{data.is_all_mountain}</div>
             </div>
           )
