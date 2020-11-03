@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Fetch from 'superagent';
+import './App.css';
 
 
 export default class App extends Component {
@@ -18,17 +19,18 @@ export default class App extends Component {
   render() {
 
     return (
-      <div>
+      <div className='list'>
         {
-          
+          !this.state.loading ?
           this.state.snowboards.map((data, i) => 
-            <div>
-                <div>Snowboard: {data.snowboard_name}</div>
-                <div>Flexability 1-10: {data.flex}</div>
-                <div>Brand: {data.brand}</div>
+            <div className='list'>
+                <div className='name'>Snowboard: {data.snowboard_name}</div>
+                <div className='flex'>Flexability 1-10: {data.flex}</div>
+                <div className='brand'>Brand: {data.brand}</div>
                 <div>{data.is_all_mountain}</div>
             </div>
-          )
+          ) :
+          'Loading'
         }
       </div>
     )
