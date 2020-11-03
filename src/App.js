@@ -23,9 +23,9 @@ export default class App extends Component {
         {
           !this.state.loading ?
           this.state.snowboards.map((data, i) => 
-            <div className='list'>
+            <div className='list card'>
                 <div className='name'>Snowboard: {data.snowboard_name}</div>
-                <div className='flex'>Flexability 1-10: {data.flex}</div>
+                <div className='flex'>Flexability: {data.flex}</div>
                 <div className='brand'>Brand: {data.brand}</div>
                 <div>{data.is_all_mountain}</div>
             </div>
