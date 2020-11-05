@@ -34,8 +34,8 @@ export default class App extends Component {
           ) :
           'Loading'
         }
-      </div>
         <Link to='/create'>Add new products</Link>
+      </div>
       </>
     )
   }

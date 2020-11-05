@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import { Link } from 'react-router-dom';
+import './App.css';
 
 const user = {
     userId: 1,
@@ -43,8 +44,8 @@ export default class CreatePage extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className='div'>
+                <form className='form' onSubmit={this.handleSubmit}>
                     <label>
                         <input onChange={e => this.setState({ snowboardName: e.target.value })} placeholder='Snowboard Name'></input>
                     </label>
@@ -62,8 +63,8 @@ export default class CreatePage extends Component {
                         }
                     </select>
                     <button>Submit</button>
-                </form>
                 <Link to='/'>Home page</Link>
+                </form>
             </div>
         )
     }
