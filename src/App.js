@@ -1,38 +1,32 @@
 import React, { Component } from 'react'
-import Fetch from 'superagent';
 import './App.css';
-
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+} from 'react-router-dom';
+import ListPage from './ListPage.js';
+import CreatePage from './CreatePage.js';
 
 export default class App extends Component {
-
-  state = {
-    snowboards: [],
-    loading: true
-  }
-
-  
-
-  componentDidMount = async () => {
-    const data = await Fetch.get('https://secret-scrubland-39461.herokuapp.com/snowboards')
-    this.setState({ snowboards: data.body, loading: false })
-  }
-  render() {
-
-    return (
-      <div className='list'>
-        {
-          !this.state.loading ?
-          this.state.snowboards.map((data, i) => 
-            <div className='list card'>
-                <div className='name'>Snowboard: {data.snowboard_name}</div>
-                <div className='flex'>Flexability: {data.flex}</div>
-                <div className='brand'>Brand: {data.brand}</div>
-                <div>{data.is_all_mountain}</div>
+    render() {
+        return (
+            <div>
+                <Router>
+                    <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
+                        />
+                    </Switch>
+                </Router>
             </div>
-          ) :
-          'Loading'
-        }
-      </div>
-    )
-  }
+        )
+    }
 }
