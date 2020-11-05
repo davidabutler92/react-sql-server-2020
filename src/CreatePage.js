@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
+import { Link } from 'react-router-dom';
 
 const user = {
     userId: 1,
@@ -62,6 +63,7 @@ export default class CreatePage extends Component {
                     </select>
                     <button>Submit</button>
                 </form>
+                <Link to='/'>Home page</Link>
             </div>
         )
     }
