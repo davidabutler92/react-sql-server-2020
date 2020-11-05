@@ -18,6 +18,18 @@ export default class CreatePage extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
+
+        const newSowboard = {
+            snowbaord_name: this.state.snowbaordName,
+            flex: this.state.flex,
+            is_all_mountain: this.state.isAllMountain,
+            brand_id: this.state.brandId,
+            owner_id: user
+        };
+
+        await request
+        .post('https://secret-scrubland-39461.herokuapp.com/snowboards')
+        .send(newSowboard);
     }
 
     render() {
