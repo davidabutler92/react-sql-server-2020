@@ -36,6 +36,8 @@ export default class CreatePage extends Component {
         await request
         .post('https://secret-scrubland-39461.herokuapp.com/snowboards')
         .send(newSnowboard);
+        
+        this.props.history.push('/');
     }
 
     handleChange = (e) => {
