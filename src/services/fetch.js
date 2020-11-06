@@ -29,12 +29,24 @@ export async function getBrands() {
     }
 }
 
-export async function createSnowboard(id, newSnowboard) {
+export async function createSnowboard(newSnowboard) {
     try {
         await request 
-        .put(`${URL}snowboards/${id}`)
+        .post(`${URL}snowboards/`)
         .send(newSnowboard);
 
+        return;
+    } catch(err) {
+        throw err;
+    }
+}
+
+export async function updateSnowboard(id, newSnowboard) {
+    try {
+        await request
+        .put(`${URL}snowboards/${id}`)
+        .send(newSnowboard);
+        
         return;
     } catch(err) {
         throw err;
