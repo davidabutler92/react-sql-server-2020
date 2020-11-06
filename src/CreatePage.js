@@ -46,6 +46,7 @@ export default class CreatePage extends Component {
                         
                         <label>
                             <input onChange={e => this.setState({ snowboardName: e.target.value })} 
+                            className='inputSearch'
                             placeholder='Snowboard Name'
                             required
                             ></input>
@@ -53,6 +54,7 @@ export default class CreatePage extends Component {
 
                         <label>
                             <input type='number' onChange={e => this.setState({ flex: e.target.value })} 
+                            className='inputSearch'
                             placeholder='Snowboard Flex'
                             required
                             ></input>
