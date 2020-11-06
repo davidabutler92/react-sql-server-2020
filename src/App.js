@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import ListPage from './ListPage.js';
 import CreatePage from './CreatePage.js';
+import DetailPage from './DetailPage';
 
 export default class App extends Component {
     render() {
@@ -17,12 +18,17 @@ export default class App extends Component {
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <ListPage {...routerProps} />} 
+                            render={(routerProps) => <ListPage className='listPage' {...routerProps} />} 
                         />
                         <Route 
                             path="/create" 
                             exact
                             render={(routerProps) => <CreatePage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/detail" 
+                            exact
+                            render={(routerProps) => <DetailPage {...routerProps} />} 
                         />
                     </Switch>
                 </Router>
