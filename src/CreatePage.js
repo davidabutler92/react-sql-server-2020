@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
+import getAllSnowboards from './services/fetch';
 import { Link } from 'react-router-dom';
 import './App.css';
 
@@ -18,7 +19,7 @@ export default class CreatePage extends Component {
     }
 
     componentDidMount = async () => {
-        const response = await request.get('https://secret-scrubland-39461.herokuapp.com/brands')
+        getAllSnowboards()
         this.setState({ brands: response.body })
     }
 

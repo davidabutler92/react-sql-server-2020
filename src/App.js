@@ -17,7 +17,7 @@ export default class App extends Component {
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <ListPage {...routerProps} />} 
+                            render={(routerProps) => <ListPage className='listPage' {...routerProps} />} 
                         />
                         <Route 
                             path="/create" 
