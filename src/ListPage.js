@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import Fetch from 'superagent';
-import './App.css';
+import { getAllSnowboards } from './services/fetch';
 import { Link } from 'react-router-dom';
-
+import './App.css';
 
 export default class App extends Component {
 
@@ -14,8 +13,8 @@ export default class App extends Component {
   
 
   componentDidMount = async () => {
-    const data = await Fetch.get('https://secret-scrubland-39461.herokuapp.com/snowboards')
-    this.setState({ snowboards: data.body, loading: false })
+    const snowboards = await getAllSnowboards()
+    this.setState({ snowboards, loading: false })
   }
   render() {
 
@@ -25,12 +24,14 @@ export default class App extends Component {
         {
           !this.state.loading ?
           this.state.snowboards.map((data, i) => 
+          <Link to='/detail'>
             <div className='list card'>
                 <div className='name'>Snowboard: {data.snowboard_name}</div>
                 <div className='flex'>Flexability: {data.flex}</div>
                 <div className='brand'>Brand: {data.brand}</div>
                 <div>{data.is_all_mountain}</div>
             </div>
+          </Link>
           ) :
           'Loading'
         }
